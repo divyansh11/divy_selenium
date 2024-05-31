@@ -1,5 +1,7 @@
 package basics;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,23 +26,51 @@ public class LearnXpath {
 		driver.findElement(By.xpath("//*[@class='buttons']//input[@value='Log in']")).click();
 		driver.findElement(By.xpath("(//ul[@class='list'])[1]/li[4]/a")).click();
 		
-		driver.findElement(By.xpath("//*[@class='product-title']//*[contains(text(),'Blue Jean')]")).click();
-		WebElement qtyBox=driver.findElement(By.xpath("//*[contains(@id,'addtocart_36_EnteredQuantity')]"));
 		
-		Thread.sleep(1000);
-		qtyBox.clear();
-		qtyBox.sendKeys("28");
+//		#Homework 1
 		
-		driver.findElement(By.xpath("//*[@id='add-to-cart-button-36']")).click();
+		List<WebElement> title= driver.findElements(By.xpath("//*[@class='product-grid']//*[@class='product-title']//a[1]"));
+//		System.out.println(title.size());
 		
-		driver.findElement(By.xpath("//*[@id='topcartlink']")).click();
-
-		WebElement dropDown=driver.findElement(By.xpath("//*[@class='country-input']"));
+		for(int i=0;i<title.size();i++) {
+			System.out.println(title.get(i).getText());
+		}
 		
-		Thread.sleep(1000);
 		
-		Select dropdown=new Select(dropDown);
-		dropdown.selectByVisibleText("India");
+		
+		
+		
+		
+		
+		
+//		driver.findElement(By.xpath("//*[@class='product-title']//*[contains(text(),'Blue Jean')]")).click();
+//		WebElement qtyBox=driver.findElement(By.xpath("//*[contains(@id,'addtocart_36_EnteredQuantity')]"));
+//		
+//		Thread.sleep(1000);
+//		qtyBox.clear();
+//		qtyBox.sendKeys("28");
+//		
+//		driver.findElement(By.xpath("//*[@id='add-to-cart-button-36']")).click();
+//		
+//		driver.findElement(By.xpath("//*[@id='topcartlink']")).click();
+//
+//		WebElement dropDown=driver.findElement(By.xpath("//*[@class='country-input']"));
+//		
+//		Thread.sleep(1000);
+//		
+//		Select dropdown=new Select(dropDown);
+//		dropdown.selectByVisibleText("India");
+//		
+//		
+//		driver.findElement(By.xpath("//*[@id='ZipPostalCode']")).sendKeys("312001");
+//		
+//		Thread.sleep(1000);
+//		
+//		driver.findElement(By.xpath("//*[@id='termsofservice']")).click();
+//		
+//		driver.findElement(By.xpath("//*[@id='checkout']")).click();
+		
+		
 
 	}
 
